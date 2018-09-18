@@ -1,0 +1,50 @@
+def versions = [
+        kotlin    : '1.2.70',
+        support   : '27.1.1',
+        room      : '1.1.0',
+        coroutines: '0.24.0'
+]
+
+ext.versions = versions
+
+ext.deps = [
+        android: [
+                build  : [
+                        buildToolsVersion: '27.0.3',
+                        compileSdkVersion: 27,
+                        minSdkVersion    : 21,
+                        targetSdkVersion : 27
+                ],
+                support: [
+                        constraintLayout       : 'com.android.support.constraint:constraint-layout:1.1.3',
+
+                        annotations            : "com.android.support:support-annotations:${versions.support}",
+                        appCompat              : "com.android.support:appcompat-v7:${versions.support}",
+                        compat                 : "com.android.support:support-compat:${versions.support}",
+                        customTabs             : "com.android.support:customtabs:${versions.support}",
+                        design                 : "com.android.support:design:${versions.support}",
+                        multidex               : "com.android.support:multidex:${versions.multidex}",
+                        multidexInstrumentation: "com.android.support:multidex-instrumentation:${versions.multidex}",
+                        recyclerView           : "com.android.support:recyclerview-v7:${versions.support}",
+                        v4                     : "com.android.support:support-v4:${versions.support}"
+                ],
+        ],
+        kotlin : [
+                'stdlib'  : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+                coroutines: [
+                        core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}",
+                        android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+                ]
+        ],
+        arch                  : [
+                lifecycle   : "android.arch.lifecycle:extensions:1.1.1",
+                runtime     : "android.arch.core:runtime:${versions.room}",
+                room        : "android.arch.persistence.room:runtime:${versions.room}",
+                roomCompiler: "android.arch.persistence.room:compiler:${versions.room}",
+        ],
+        testing : [
+                junit : "junit:junit:4.12",
+                runner : 'com.android.support.test:runner:1.0.2',
+                espresso : 'com.android.support.test.espresso:espresso-core:3.0.2'
+        ]
+]

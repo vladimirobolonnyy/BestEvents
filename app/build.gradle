@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion deps.android.build.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.obolonnyy.best.bestevents"
+        minSdkVersion deps.android.build.minSdkVersion
+        targetSdkVersion deps.android.build.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    //implementation project(":database")
+
+    implementation deps.android.support.recyclerView
+    implementation deps.android.support.appCompat
+    implementation deps.android.support.constraintLayout
+
+    implementation deps.kotlin.stdlib
+    implementation deps.arch.lifecycle
+    implementation deps.arch.runtime
+
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.testing.junit
+    implementation deps.testing.runner
+    implementation deps.testing.espresso
+}
